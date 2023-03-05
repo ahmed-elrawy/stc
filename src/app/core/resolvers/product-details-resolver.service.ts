@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { ProductsService } from '@app/features/products/products.service';
 
 import { catchError, EMPTY, Observable } from 'rxjs';
-import { Product } from '../data/products';
+import { Product } from '../models/products';
 
 @Injectable({
   providedIn: 'root'

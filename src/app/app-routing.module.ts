@@ -7,7 +7,6 @@ const routes: Routes = [
     redirectTo: 'products',
     pathMatch: 'full',
   },
-
   {
     path: 'products',
     loadChildren: () =>
@@ -15,8 +14,6 @@ const routes: Routes = [
         (m) => m.ProductModule
       ),
   },
-
-  
 ];
 
 @NgModule({

@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import { NotFoundComponent } from '@app/shared/components/not-found/not-found.component';
 import { productDetailsResolver } from '@core/resolvers/product-details-resolver.service';
 import { LayoutComponent } from '@shared/components/layout/layout.component';
-import { NotFoundComponent } from '@shared/components/not-found/not-found.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';

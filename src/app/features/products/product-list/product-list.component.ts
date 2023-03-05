@@ -1,45 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-// import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from '@core/data/products';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ProductsComponent } from '../products.component';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { Product } from '@app/core/models/products';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent extends ProductsComponent implements OnInit {
-	closeResult = '';
+export class ProductListComponent extends ProductsComponent implements OnInit, OnDestroy {
+	subscription$: Subscription = new Subscription();
 	products:Product[] = []
-
-  
 	constructor( ) {
 		super()
 	}
 	ngOnInit(): void {
-		this.productsServes.products().subscribe(res => {
-			this.products=res			
-		})
+		this.getProducts()
 	}
 
-	// open(content:any) {
-	// 	this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-	// 		(result) => {
-	// 			this.closeResult = `Closed with: ${result}`;
-	// 		},
-	// 		(reason) => {
-	// 			this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-	// 		},
-	// 	);
-	// }
+	getProducts():void {
+		this.subscription$.add(
+			this.productsServes.products().subscribe(res => {
+				this.products=res			
+			})
+		)
+	}
 
-	// private getDismissReason(reason: any): string {
-	// 	if (reason === ModalDismissReasons.ESC) {
-	// 		return 'by pressing ESC';
-	// 	} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-	// 		return 'by clicking on a backdrop';
-	// 	} else {
-	// 		return `with: ${reason}`;
-	// 	}
-	// }
+	ngOnDestroy(): void {
+		this.subscription$.unsubscribe();
+	}
 }

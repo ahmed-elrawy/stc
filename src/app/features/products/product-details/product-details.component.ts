@@ -1,7 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '@app/core/models/products';
 import { map } from 'rxjs';
-import { Product } from '@core/data/products';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({

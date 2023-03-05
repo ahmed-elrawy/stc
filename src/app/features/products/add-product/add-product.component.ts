@@ -9,7 +9,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddProductComponent extends ProductsComponent implements OnInit {
   addProductForm!:FormGroup
-  constructor(private fb: FormBuilder) { super()}
+  constructor(private _fb: FormBuilder) {
+     super()
+    }
 
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class AddProductComponent extends ProductsComponent implements OnInit {
 
 
   initiateAddProductForm():void {
-    this.addProductForm = this.fb.group({
+    this.addProductForm = this._fb.group({
       title: ['1',Validators.required],
       price: ['',Validators.required],
       img: ['',Validators.required],
