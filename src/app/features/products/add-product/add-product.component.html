@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="addProductForm" class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">title</label>
+      <input formControlName="title" type="text" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">price</label>
+        <input formControlName="price" type="number" class="form-control" id="inputPassword4">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">image</label>
+        <input formControlName="img" type="text" class="form-control" id="inputPassword4">
+      </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">description</label>
+      <input formControlName="description" type="text" class="form-control" id="inputAddress" placeholder="">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">category</label>
+      <input formControlName="category" type="text" class="form-control" id="inputAddress2" placeholder="">
+    </div>
+  </form>
+</div>
+<div class="float-end">
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="submit()">save</button>
+  </div>
+</div>
+
+
