@@ -1,0 +1,23 @@
+<mat-card [style.width.px]="width" style="margin: auto; top: 150px">
+    <mat-card-content>
+      <img [src]="logo" class="center" [width]="width/2">
+      <form (ngSubmit)="requestSignIn()" [formGroup]="authForm">
+        <mat-form-field class="block">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Digite seu email" type="text" formControlName="email">
+          <mat-error *ngIf="authForm.invalid">Email inválido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="block">
+          <mat-label>Senha</mat-label>
+          <input matInput placeholder="Digite sua senha" type="password" formControlName="passwd">
+          <mat-error>Mínimo de 4 caracteres</mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="invalidCredentials" [style.marginBottom.px]="10">
+          Email não cadastrado ou senha inválida
+        </mat-error>
+        <button color="primary" mat-raised-button [disabled]="authForm.invalid">
+          ENTRAR
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
