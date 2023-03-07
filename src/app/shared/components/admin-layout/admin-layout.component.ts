@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ProductsService } from '@app/core/services/products.service';
+import { AuthService } from '@app/features/login/auth.service';
 
 @Component({
   selector: 'app-Admin-layout',
@@ -9,6 +11,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AdminLayoutComponent {
   @ViewChild('sidenav') sidenav?: MatSidenav;
+  protected authService = inject(AuthService)
+
+
   isExpanded = true;
   showSubmenu: boolean = false;
   isShowing = false;
@@ -25,7 +30,12 @@ export class AdminLayoutComponent {
       this.isShowing = false;
     }
   }
+
+  logout() {
+    this.authService.signOut()
+  }
 }
+
 
  
 

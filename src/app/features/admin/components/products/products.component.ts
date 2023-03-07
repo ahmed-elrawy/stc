@@ -1,24 +1,10 @@
-import { Component, inject,ViewEncapsulation } from '@angular/core';
+import { Component, inject,OnDestroy,OnInit,ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from '@app/core/models/products';
+import { ProductsService } from '@app/core/services/products.service';
+import { Subscription } from 'rxjs';
 import { AddProductComponent } from '../add-product/add-product.component';
 
-
-
-
-
-const ELEMENT_DATA: Product[] = [
-  {id: 1, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 2, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 3, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 4, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 5, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 6, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 7, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 8, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 9, title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-  {id: 10,title: "title", price: 1, description: "desc", category: "cat", image: "", rating: {rate:1, count: 1 }},
-];
 
 @Component({
   selector: 'app-products-list',
@@ -27,25 +13,44 @@ const ELEMENT_DATA: Product[] = [
 })
 
 
-export class ProductsComponent {
+export class ProductsComponent implements OnInit, OnDestroy {
   protected dialog = inject(MatDialog)
-  
+	subscription$: Subscription = new Subscription();
+	products:Product[] = []
+
   displayedColumns: string[] = ['id', 'title', 'price', 'desc', 'cat','img', 'rating',"edit", "delete"];
-  dataSource = ELEMENT_DATA;
+  dataSource: Product[] = []
+  constructor(private productsServes: ProductsService) {}
+
+  ngOnInit(): void {
+		this.getProducts()
+	}
+
+	getProducts():void {
+		this.subscription$.add(
+			this.productsServes.products().subscribe(res => {
+				this.dataSource=res	
+        console.log(res);
+        
+			})
+		)
+	}
+  
+
 
   openDialog() {
     this.dialog.open(AddProductComponent);
   }
 
   delete(id:number) {
-    if(confirm("Are you sure to delete "+id)) {
-      console.log(id-1);
-      
-      this.dataSource= this.dataSource.slice(id-1)
-      console.log(this.dataSource);
-      
+    if(confirm("Are you sure to delete "+id)) {    
+       this.dataSource.splice(id-1,1)
+      this.dataSource= [...this.dataSource]
       alert('product has been deleted')
     }
   }
 
+  ngOnDestroy(): void {
+		this.subscription$.unsubscribe();
+	}
 }

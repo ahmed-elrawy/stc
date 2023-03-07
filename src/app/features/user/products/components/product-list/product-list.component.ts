@@ -16,9 +16,6 @@ export class ProductListComponent extends ProductsComponent implements OnInit, O
 	}
 	ngOnInit(): void {
 		this.getProducts()
-		this.productsServes.products().subscribe(res => {
-			this.products=res	
-		})
 	}
 
 	getProducts():void {
