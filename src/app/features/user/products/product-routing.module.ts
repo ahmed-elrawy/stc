@@ -3,9 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from '@app/shared/components/not-found/not-found.component';
 import { productDetailsResolver } from '@core/resolvers/product-details-resolver.service';
 import { LayoutComponent } from '@shared/components/layout/layout.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { AddProductComponent } from '../../admin/components/add-product/add-product.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsComponent } from './products.component';
 
 
@@ -25,12 +25,6 @@ children = [
     path: 'products-list',
     component: ProductListComponent,
   },
-
-  {
-    path: 'add-product',
-    component: AddProductComponent,
-  },
-
   {
     path: 'product-details/:id',
     component: ProductDetailsComponent,

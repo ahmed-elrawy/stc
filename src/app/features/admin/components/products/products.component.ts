@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from '../add-product/add-product.component';
 
 export interface PeriodicElement {
   name: string;
@@ -26,6 +28,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 export class ProductsComponent {
+  protected dialog = inject(MatDialog)
+  
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  openDialog() {
+    this.dialog.open(AddProductComponent);
+  }
+
 }

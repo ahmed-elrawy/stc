@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './products.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 
 @NgModule({
@@ -12,7 +11,6 @@ import { ProductsComponent } from './products.component';
     ProductsComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    AddProductComponent,
   ],
   imports: [
     ProductRoutingModule,

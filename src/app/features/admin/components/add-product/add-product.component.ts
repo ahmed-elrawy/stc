@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { ProductsComponent } from '../products.component';
+import { ProductsComponent } from '../../../user/products/products.component';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
