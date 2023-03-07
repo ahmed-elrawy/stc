@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthService } from '@app/features/login/auth.service';
+import { AuthService } from '@app/core/services/auth.service';
 
 
 export type Permission = 'ADMIN' | 'USER' | 'MANAGER';

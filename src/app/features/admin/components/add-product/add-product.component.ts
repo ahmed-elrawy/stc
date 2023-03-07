@@ -29,8 +29,8 @@ export class AddProductComponent extends ProductsComponent implements OnInit {
     })
   };
 
-  submit() {
-    this.productsServes.addProduct(this.addProductForm.value).subscribe(res => {
+  submit():void {
+    this.productsServes.addProduct(this.addProductForm.value).subscribe((res:any) => {
       alert('product has been created successfully')
     })
   }

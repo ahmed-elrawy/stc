@@ -20,7 +20,7 @@ export class ProductListComponent extends ProductsComponent implements OnInit, O
 
 	getProducts():void {
 		this.subscription$.add(
-			this.productsServes.products().subscribe(res => {
+			this.productsServes.products().subscribe((res: Product[]) => {
 				this.products=res	
 			})
 		)

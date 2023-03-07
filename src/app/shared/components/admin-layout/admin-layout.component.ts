@@ -1,7 +1,6 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { ProductsService } from '@app/core/services/products.service';
-import { AuthService } from '@app/features/login/auth.service';
+import { AuthService } from '@app/core/services/auth.service';
 
 @Component({
   selector: 'app-Admin-layout',

@@ -3,15 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { TokenAnswer, User } from '@app/core/models/user';
 
-export interface User {
-  username: string;
-  name: string;
-  admin: boolean;
-}
-interface TokenAnswer {
-  token: string;
-}
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +17,7 @@ export class AuthService {
 
   signIn(email: string, password: string) {
     return this.http.post<TokenAnswer>('/api/auth', { email, password }).pipe(
-      map((response) => {
+      map((response:TokenAnswer) => {
         if (response && response.token) {
           const decodedToken = this.jwt.decodeToken(response.token);
           localStorage.setItem('token', response.token);

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FakeServerInterceptor } from 'assets/fake-server.service';
-import { AuthService } from './features/login/auth.service';
+import { AuthService } from './core/services/auth.service';
 
 
 //app.module.ts (red-app)

@@ -1,5 +1,5 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Resolve } from '@angular/router';
 import { Product } from '@app/core/models/products';
 import { map } from 'rxjs';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -21,11 +21,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
   getProduct():void {
     this.subscription$.add(
       this._route.data.pipe(  
-        map((data) => {
-        return data
+        map((data:any) => {
+        return data['resolve']   
         })
-        ).subscribe(res =>{
-        this.product = res['resolve']     
+        ).subscribe((res:Product) =>{
+        this.product = res  
       })
     )
   }

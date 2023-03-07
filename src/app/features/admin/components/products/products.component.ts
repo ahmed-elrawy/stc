@@ -1,4 +1,4 @@
-import { Component, inject,OnDestroy,OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, inject,OnDestroy,OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from '@app/core/models/products';
 import { ProductsService } from '@app/core/services/products.service';
@@ -28,19 +28,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
 	getProducts():void {
 		this.subscription$.add(
-			this.productsServes.products().subscribe(res => {
+			this.productsServes.products().subscribe((res:Product[])=> {
 				this.dataSource=res	
 			})
 		)
 	}
-  
 
-
-  openDialog() {
+  openDialog():void {
     this.dialog.open(AddProductComponent);
   }
 
-  delete(id:number) {
+  delete(id:number):void {
     if(confirm("Are you sure to delete "+id)) {    
        this.dataSource.splice(id-1,1)
       this.dataSource= [...this.dataSource]

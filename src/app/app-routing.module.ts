@@ -1,7 +1,7 @@
 import { inject, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserPermissionsService } from './core/guards/user- permission.service';
-import { AuthGuard } from './features/login/auth-guard.service';
+import { UserPermissionsService } from './core/guards/user-permission.service';
+import { AuthGuard } from './core/guards/auth-guard.service';
 
 const routes: Routes = [
   {
