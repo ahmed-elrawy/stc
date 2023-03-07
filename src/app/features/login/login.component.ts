@@ -24,12 +24,7 @@ export class LoginComponent {
     localStorage.clear()
     const email = this.authForm.get('email')?.value;
     const passwd = this.authForm.get('passwd')?.value;
-    console.log(email);
-    console.log(passwd);
-    
     this.auth.signIn(email, passwd).subscribe(isConnected => {
-      console.log(isConnected);
-      
       if (isConnected) {
         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         this.router.navigateByUrl(returnUrl);      }

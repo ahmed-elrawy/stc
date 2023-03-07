@@ -26,8 +26,6 @@ export class AuthService {
       map((response) => {
         if (response && response.token) {
           const decodedToken = this.jwt.decodeToken(response.token);
-          console.log(decodedToken);
-
           localStorage.setItem('token', response.token);
           return true;
         }

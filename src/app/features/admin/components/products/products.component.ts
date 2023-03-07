@@ -30,8 +30,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
 		this.subscription$.add(
 			this.productsServes.products().subscribe(res => {
 				this.dataSource=res	
-        console.log(res);
-        
 			})
 		)
 	}
