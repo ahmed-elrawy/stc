@@ -16,10 +16,12 @@ children = [
   {
     path: 'products',
     component: ProductsComponent,
+    title: 'Products'
   },
   {
     path: 'add-product',
     component: AddProductComponent,
+    title: 'Add product'
   },
   {
     path: '**',

@@ -1,9 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from '@app/core/services/auth.service';
 
-
-export type Permission = 'ADMIN' | 'USER' | 'MANAGER';
-
+export type Permission = 'ADMIN' | 'USER';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +19,4 @@ export class UserPermissionsService   {
       }
       return false
     }
-
-  
 }

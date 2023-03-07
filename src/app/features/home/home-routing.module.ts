@@ -9,6 +9,8 @@ children = [
   {
     path: '',
     component: HomeComponent,
+    title: 'Home'
+
   },
 
   {

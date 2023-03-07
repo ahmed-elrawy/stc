@@ -19,10 +19,14 @@ children = [
   {
     path: 'products',
     component: ProductsComponent,
+    title: 'Products'
+
   },
   {
     path: 'products-list',
     component: ProductListComponent,
+    title: 'Products list'
+
   },
   {
     path: 'product-details/:id',
@@ -30,6 +34,8 @@ children = [
     resolve: {
       resolve: productDetailsResolver
     },
+    title: 'Product details'
+
   },
 
   {
