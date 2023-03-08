@@ -10,13 +10,11 @@
 <mat-sidenav-container class="example-container" autosize>
 	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
 		<mat-nav-list>
-			<mat-list-item class="parent"  routerLink="products">
+			<mat-list-item class="parent"  routerLink="/products">
 				<span class="full-width" *ngIf="isExpanded || isShowing">all Products</span>
-				<mat-icon mat-list-icon>add</mat-icon>
 			</mat-list-item>
 			<mat-list-item class="parent" routerLink="add-product">
 				<span class="full-width" *ngIf="isExpanded || isShowing">add Product</span>
-				<mat-icon mat-list-icon>add</mat-icon>
 			</mat-list-item>
 
 		</mat-nav-list>
