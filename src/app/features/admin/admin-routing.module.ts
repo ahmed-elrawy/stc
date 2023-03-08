@@ -9,12 +9,6 @@ let children: Routes;
 children = [
   {
     path: '',
-    redirectTo: 'products',
-    pathMatch: 'full',
-  },
-
-  {
-    path: 'products',
     component: ProductsComponent,
     title: 'Products'
   },
